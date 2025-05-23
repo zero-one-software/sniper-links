@@ -2,6 +2,7 @@ require "sniper_links/version"
 
 require "uri"
 
+require "sniper_links/strategies/apple"
 require "sniper_links/strategies/gmail"
 require "sniper_links/strategies/outlook"
 require "sniper_links/strategies/proton"
@@ -40,6 +41,8 @@ class SniperLinks
                                  SniperLinks::Strategies::Proton.new(email)
                                when /(proton|pm).me\z/
                                  SniperLinks::Strategies::Proton.new(email)
+                               when /(me|mac|icloud)\.com\z/
+                                 SniperLinks::Strategies::Apple.new(email)
                                else
                                  raise Error, "Unsupported email domain"
                                end

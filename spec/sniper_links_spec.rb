@@ -61,7 +61,7 @@ RSpec.describe SniperLinks do
   end
 
   context "when working with Proton" do
-    context "when supplied an email ending in @yahoo.com" do
+    context "when supplied an email ending in @proton.me" do
       let(:email) { "plop@proton.me" }
 
       its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::Proton) }
@@ -74,6 +74,23 @@ RSpec.describe SniperLinks do
         its(:host)     { is_expected.to eq "mail.proton.me" }
         its(:path)     { is_expected.to start_with("/u/0/all-mail") }
         its(:fragment) { is_expected.to start_with("from=") }
+      end
+    end
+  end
+
+  context "when working with iCloud" do
+    context "when supplied an email ending in @icloud.com" do
+      let(:email) { "plop@icloud.com" }
+
+      its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::Apple) }
+
+      context "when generating a sniper link" do
+        subject(:strategy_obj) { sniper_link_obj.sniper_link(from) }
+
+        it { is_expected.to be_a(URI) }
+
+        its(:host) { is_expected.to eq "www.icloud.com" }
+        its(:path) { is_expected.to start_with("/mail") }
       end
     end
   end
