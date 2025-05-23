@@ -1,0 +1,3 @@
+module SniperLinks
+  VERSION = "0.1.0"
+end
