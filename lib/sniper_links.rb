@@ -4,6 +4,7 @@ require "uri"
 
 require "sniper_links/strategies/gmail"
 require "sniper_links/strategies/outlook"
+require "sniper_links/strategies/yahoo"
 
 class SniperLinks
   class Error < StandardError; end
@@ -26,6 +27,8 @@ class SniperLinks
                                  SniperLinks::Strategies::GMail.new(email)
                                when /@outlook\.com\z/
                                  SniperLinks::Strategies::Outlook.new(email)
+                               when /@(my)?yahoo\./
+                                 SniperLinks::Strategies::Yahoo.new(email)
                                else
                                  raise Error, "Unsupported email domain"
                                end

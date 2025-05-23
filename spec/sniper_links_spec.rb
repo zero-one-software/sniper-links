@@ -49,14 +49,19 @@ RSpec.describe SniperLinks do
         it "is expected to generate a sniper link" do
           expect(strategy_obj).to be_a(URI)
         end
+  context "when working with Yahoo" do
+    context "when supplied an email ending in @yahoo.com" do
+      let(:email) { "plop@yahoo.com" }
 
-        it "is expected to point to the correct URL" do
-          expect(strategy_obj.host).to eq "outlook.live.com"
-        end
+      its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::Yahoo) }
 
-        it "is expected to have sniper params" do
-          expect(strategy_obj.query).to start_with("login_hint=")
-        end
+      context "when generating a sniper link" do
+        subject(:strategy_obj) { sniper_link_obj.sniper_link(from) }
+
+        it { is_expected.to be_a(URI) }
+
+        its(:host) { is_expected.to eq "mail.yahoo.com" }
+        its(:path) { is_expected.to start_with("/d/search/keyword=") }
       end
     end
   end
