@@ -3,6 +3,7 @@ require "sniper_links/version"
 require "uri"
 
 require "sniper_links/strategies/gmail"
+require "sniper_links/strategies/outlook"
 
 class SniperLinks
   class Error < StandardError; end
@@ -23,8 +24,8 @@ class SniperLinks
     @_sniper_link_strategy ||= case email
                                when /@gmail\.com\z/
                                  SniperLinks::Strategies::GMail.new(email)
-                              #  when /@outlook\.com\z/
-                              #    SniperLinks::Strategies::Outlook.new(email)
+                               when /@outlook\.com\z/
+                                 SniperLinks::Strategies::Outlook.new(email)
                                else
                                  raise Error, "Unsupported email domain"
                                end
