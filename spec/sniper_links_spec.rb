@@ -1,3 +1,5 @@
+require 'pry'
+
 RSpec.describe SniperLinks do
   it "has a version number" do
     expect(SniperLinks::VERSION).not_to be nil
