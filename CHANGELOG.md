@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.1.1 - 2025-05-23
+
+### Added
+
+n/a
+
+### Changed
+
+n/a
+
+### Fixed
+
+* Missing gemspec links to source code and changelog
+
 ## 0.1.0 - 2025-05-23
 
 ### Added
@@ -19,12 +33,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* n/a
+n/a
 
 ### Changed
 
-* n/a
+n/a
 
 ### Breaking Changes
 
-* n/a
+n/a
