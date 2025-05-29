@@ -94,4 +94,21 @@ RSpec.describe SniperLinks do
       end
     end
   end
+
+  context "when working with Hey.com" do
+    context "when supplied an email ending in @hey.com" do
+      let(:email) { "plop@hey.com" }
+
+      its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::HeyDotCom) }
+
+      context "when generating a sniper link" do
+        subject(:strategy_obj) { sniper_link_obj.sniper_link(from) }
+
+        it { is_expected.to be_a(URI) }
+
+        its(:host) { is_expected.to eq "app.hey.com" }
+        its(:path) { is_expected.to start_with("/topics/everything") }
+      end
+    end
+  end
 end
