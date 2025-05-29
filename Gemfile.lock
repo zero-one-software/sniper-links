@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sniper_links (0.1.1)
+    sniper_links (0.2.0)
 
 GEM
   remote: https://rubygems.org/
