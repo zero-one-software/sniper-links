@@ -73,18 +73,21 @@ We support the following email service provider platforms:
 * Yahoo - `*@yahoo.*` or `*@myyahoo.*`
 * ProtonMail - `*@protonmail.com`, `*@proton.me`, `*@protonmail.ch`, or `*@pm.me`
 * iCloud - `*@icloud.com`, `*@me.com`, or `*@mac.com`
+* Hey.com - `*@hey.com`
+* AOL - `*@aol.com`
+* Mail.ru - `*@mail.ru`
 
 ### Sniper link strategy functionality
 
 Each email service provider has its own sniper link strategy. The following table shows how much functionality is supported by each provider.
 
-|              | Gmail | Outlook | Yahoo | Protonmail | iCloud |
-|--------------|-------|---------|-------|------------|--------|
-| Link         |  ✔️   |  ✔️     |  ✔️  |     ✔️     |   ✔️   |
-| Account      |  ✔️   |  ✔️     |  ✖️  |     ✖️️     |   ✖️   |
-| From filter  |  ✔️   |  ✖️️️️     |  ✔️  |     ✔️     |   ✖️   |
-| Spam piercer |  ✔️   |  ✖️️️️     |  ✔️  |     ✔️     |   ✖️   |
-| Time filter  |  ✔️   |  ✖️️️️     |  ✔️  |     ✔️     |   ✖️   |
+|              | Gmail | Outlook | Yahoo | Protonmail | iCloud | Hey.com | AOL   | Mail.ru |
+|--------------|-------|---------|-------|------------|--------|---------|---------|-------|
+| Link         |  ✔️   |  ✔️     |  ✔️  |     ✔️     |   ✔️   |     ✔️   |   ✔️   |   ✔️   |
+| Account      |  ✔️   |  ✔️     |  ✖️  |     ✖️️     |   ✖️   |     ✖️   |   ✖️   |   ✖️   |
+| From filter  |  ✔️   |  ✖️️️️     |  ✔️  |     ✔️     |   ✖️   |     ✖️   |   ✔️   |   ✔️   |
+| Spam piercer |  ✔️   |  ✖️️️️     |  ✔️  |     ✔️     |   ✖️   |     ✔️   |   ✖️   |   ✖️   |
+| Time filter  |  ✔️   |  ✖️️️️     |  ✔️  |     ✔️     |   ✖️   |     ✖️   |   ✔️   |   ✖️   |
 
 ## Development
 
@@ -96,7 +99,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/zero-o
 
 ### Feature wishlist
 
-* Add support for more email service providers, like Hey.com, Fastmail, etc.
+* Add support for more email service providers, like Fastmail, etc.
 * Add support for selecting a strategy based on the email address domain's MX records.
 
 ## License

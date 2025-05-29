@@ -94,4 +94,57 @@ RSpec.describe SniperLinks do
       end
     end
   end
+
+  context "when working with Hey.com" do
+    context "when supplied an email ending in @hey.com" do
+      let(:email) { "plop@hey.com" }
+
+      its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::HeyDotCom) }
+
+      context "when generating a sniper link" do
+        subject(:strategy_obj) { sniper_link_obj.sniper_link(from) }
+
+        it { is_expected.to be_a(URI) }
+
+        its(:host) { is_expected.to eq "app.hey.com" }
+        its(:path) { is_expected.to start_with("/topics/everything") }
+      end
+    end
+  end
+
+  context "when working with AOL.com" do
+    context "when supplied an email ending in @aol.com" do
+      let(:email) { "plop@aol.com" }
+
+      its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::AOLDotCom) }
+
+      context "when generating a sniper link" do
+        subject(:strategy_obj) { sniper_link_obj.sniper_link(from) }
+
+        it { is_expected.to be_a(URI) }
+
+        its(:host) { is_expected.to eq "mail.aol.com" }
+        its(:path) { is_expected.to start_with("/d/search") }
+        its(:path) { is_expected.to end_with("keyword=from:#{from}") }
+      end
+    end
+  end
+
+  context "when working with Mail.ru" do
+    context "when supplied an email ending in @mail.ru" do
+      let(:email) { "plop@mail.ru" }
+
+      its(:sniper_link_strategy) { is_expected.to be_a(SniperLinks::Strategies::MailDotRu) }
+
+      context "when generating a sniper link" do
+        subject(:strategy_obj) { sniper_link_obj.sniper_link(from) }
+
+        it { is_expected.to be_a(URI) }
+
+        its(:host)  { is_expected.to eq "e.mail.ru" }
+        its(:path)  { is_expected.to start_with("/search") }
+        its(:query) { is_expected.to eq "q_from=#{from}" }
+      end
+    end
+  end
 end

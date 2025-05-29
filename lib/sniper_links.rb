@@ -2,8 +2,11 @@ require "sniper_links/version"
 
 require "uri"
 
+require "sniper_links/strategies/aol_dot_com"
 require "sniper_links/strategies/apple"
 require "sniper_links/strategies/gmail"
+require "sniper_links/strategies/hey_dot_com"
+require "sniper_links/strategies/mail_dot_ru"
 require "sniper_links/strategies/outlook"
 require "sniper_links/strategies/proton"
 require "sniper_links/strategies/yahoo"
@@ -43,6 +46,12 @@ class SniperLinks
                                  SniperLinks::Strategies::Proton.new(email)
                                when /(me|mac|icloud)\.com\z/
                                  SniperLinks::Strategies::Apple.new(email)
+                               when /hey\.com\z/
+                                 SniperLinks::Strategies::HeyDotCom.new(email)
+                               when /aol\.com\z/
+                                 SniperLinks::Strategies::AOLDotCom.new(email)
+                               when /mail\.ru\z/
+                                 SniperLinks::Strategies::MailDotRu.new(email)
                                else
                                  raise Error, "Unsupported email domain"
                                end
