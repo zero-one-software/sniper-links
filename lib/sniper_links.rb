@@ -46,9 +46,9 @@ class SniperLinks
                                  SniperLinks::Strategies::Proton.new(email)
                                when /(me|mac|icloud)\.com\z/
                                  SniperLinks::Strategies::Apple.new(email)
-                               when /hey.com\z/
+                               when /hey\.com\z/
                                  SniperLinks::Strategies::HeyDotCom.new(email)
-                               when /aol.com\z/
+                               when /aol\.com\z/
                                  SniperLinks::Strategies::AOLDotCom.new(email)
                                when /mail\.ru\z/
                                  SniperLinks::Strategies::MailDotRu.new(email)
