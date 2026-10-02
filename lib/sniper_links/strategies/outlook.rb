@@ -5,10 +5,8 @@ class SniperLinks
         @email = email
       end
 
-      def sniper_link(from)
-        @from = from
-
-        URI("https://outlook.live.com/mail/?login_hint=#{encode(from)}")
+      def sniper_link(_from = nil)
+        URI("https://outlook.live.com/mail/?login_hint=#{encode(email)}")
       end
 
       private
@@ -17,11 +15,11 @@ class SniperLinks
         URI.encode_www_form_component(str)
       end
 
-      attr_reader :email, :from
+      attr_reader :email
     end
   end
 end
 
 __END__
 
-https://outlook.live.com/mail/?login_hint=encoded_email}
+https://outlook.live.com/mail/?login_hint=user%40outlook.com

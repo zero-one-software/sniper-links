@@ -10,7 +10,8 @@ class SniperLinks
 
         sniper_filter = encode(filter)
 
-        URI("https://mail.google.com/mail/u/0/#search/#{sniper_filter}")
+        # Gmail rejects /mail/u/<email>/ with a search fragment ("Temporary Error") since April 2026
+        URI("https://mail.google.com/mail/?authuser=#{encode(email)}#search/#{sniper_filter}")
       end
 
       private
@@ -31,4 +32,4 @@ end
 
 __END__
 
-https://mail.google.com/mail/u/0/#search/from%3A(user%40some.domain)+in%3Aanywhere+newer_than%3A1h
+https://mail.google.com/mail/?authuser=user%40gmail.com#search/from%3A(user%40some.domain)+in%3Aanywhere+newer_than%3A1h

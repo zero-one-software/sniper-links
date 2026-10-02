@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.2.1 - 2026-10-02
+
+### Fixed
+
+* GMail sniper links now select the recipient's account with `?authuser=<email>` instead of always opening the first signed-in account
+* Outlook sniper links now pass the recipient's email as `login_hint` instead of the sender's address
+
 ## 0.2.0 - 2025-05-29
 
 ### Added
