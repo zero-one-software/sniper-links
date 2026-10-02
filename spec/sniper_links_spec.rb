@@ -21,6 +21,8 @@ RSpec.describe SniperLinks do
         it { is_expected.to be_a(URI) }
 
         its(:host)     { is_expected.to eq "mail.google.com" }
+        its(:path)     { is_expected.to eq "/mail/" }
+        its(:query)    { is_expected.to eq "authuser=#{URI.encode_www_form_component(email)}" }
         its(:fragment) { is_expected.to start_with("search/") }
       end
     end
@@ -38,7 +40,7 @@ RSpec.describe SniperLinks do
         it { is_expected.to be_a(URI) }
 
         its(:host)  { is_expected.to eq "outlook.live.com" }
-        its(:query) { is_expected.to start_with("login_hint=") }
+        its(:query) { is_expected.to eq "login_hint=#{URI.encode_www_form_component(email)}" }
       end
     end
   end

@@ -44,7 +44,7 @@ snipe.sniper_link_strategy     # => SniperLinks::Strategies::GMail
 snipe.sniper_link(from)        # => URI
 
 puts snipe.sniper_link.to_s
-# => https://mail.google.com/mail/u/0/#search/from%3A%28us%40our.domain%29%2Bin%3Aanywhere%2Bnewer_than%3A1h
+# => https://mail.google.com/mail/?authuser=marlon.rando%40gmail.com#search/from%3A%28us%40our.domain%29+in%3Aanywhere+newer_than%3A1h
 ```
 
 ### Using a strategy directly
